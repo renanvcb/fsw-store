@@ -28,7 +28,7 @@ export function CategoryItem({ category }: CategoryItemProps) {
       variant="outline"
       className="flex items-center justify-center gap-2 rounded-lg py-3"
     >
-      {categoryIcon[category.slug as keyof typeof category]}
+      {categoryIcon[category.slug as keyof typeof categoryIcon]}
       <span className="text-xs font-bold">{category.name}</span>
     </Badge>
   );
