@@ -33,17 +33,17 @@ export default async function Home() {
   });
 
   return (
-    <div className="py-7">
+    <div className="flex flex-col gap-8 py-7">
       <PromoBanner
         src="/banner-home-01.png"
         alt="banner contendo o texto até 55% de desconto só esse mês"
       />
 
-      <div className="mt-8 px-5">
+      <div className="px-5">
         <Categories />
       </div>
 
-      <div className="mt-8">
+      <div>
         <ProductHorizontalList title="Ofertas" products={deals} />
       </div>
 
@@ -52,7 +52,7 @@ export default async function Home() {
         alt="banner contendo o texto até 55% de desconto em mouses"
       />
 
-      <div className="mt-8">
+      <div>
         <ProductHorizontalList
           title={
             categoryNames[
@@ -62,6 +62,11 @@ export default async function Home() {
           products={keyboards}
         />
       </div>
+
+      <PromoBanner
+        src="/banner-fones.png"
+        alt="banner contendo o texto até 20% de desconto em fones"
+      />
     </div>
   );
 }
