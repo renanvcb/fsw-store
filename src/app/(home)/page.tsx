@@ -13,7 +13,7 @@ export default async function Home() {
   });
 
   return (
-    <div>
+    <div className="py-7">
       <Image
         src="/banner-home-01.png"
         height={0}
@@ -28,8 +28,17 @@ export default async function Home() {
       </div>
 
       <div className="mt-8">
-        <ProductHorizontalList products={deals} />
+        <ProductHorizontalList title="Ofertas" products={deals} />
       </div>
+
+      <Image
+        src="/banner-mouses.png"
+        height={0}
+        width={0}
+        className="h-auto w-full px-5"
+        sizes="100vw"
+        alt="banner contendo o texto até 55% de desconto em mouses"
+      />
     </div>
   );
 }
