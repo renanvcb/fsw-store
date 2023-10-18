@@ -9,8 +9,8 @@ interface ProductItemProps {
 
 export function ProductItem({ product }: ProductItemProps) {
   return (
-    <div className="flex max-w-[9.75rem] flex-col gap-4">
-      <div className="relative flex h-[10.625rem] w-[9.75rem] items-center justify-center rounded-lg bg-accent">
+    <div className="flex max-w-[10.625rem] flex-col gap-4">
+      <div className="relative flex h-[10.625rem] w-[10.625rem] items-center justify-center rounded-lg bg-accent">
         <Image
           src={product.imageUrls[0]}
           alt={product.name}
@@ -35,15 +35,15 @@ export function ProductItem({ product }: ProductItemProps) {
         <div className="flex items-end gap-1">
           {product.discountPercentage > 0 ? (
             <>
-              <p className="font-bold">
+              <p className="overflow-hidden text-ellipsis whitespace-nowrap font-bold">
                 R$ {product.totalPrice.toFixed(2).replace(".", ",")}
               </p>
-              <p className="text-xs line-through opacity-75">
+              <p className="overflow-hidden text-ellipsis whitespace-nowrap text-xs line-through opacity-75">
                 R$ {Number(product.basePrice).toFixed(2).replace(".", ",")}
               </p>
             </>
           ) : (
-            <p className="font-bold">
+            <p className="overflow-hidden text-ellipsis whitespace-nowrap font-bold">
               R$ {product.basePrice.toFixed(2).replace(".", ",")}
             </p>
           )}
