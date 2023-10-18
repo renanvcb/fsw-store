@@ -4,7 +4,7 @@ import { Product } from "@prisma/client";
 
 interface ProductListProps {
   products: Product[];
-  title: string;
+  title?: string;
 }
 
 export function ProductHorizontalList({ title, products }: ProductListProps) {
