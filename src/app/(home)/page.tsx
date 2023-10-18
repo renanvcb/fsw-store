@@ -1,6 +1,5 @@
-"use client";
-
 import Image from "next/image";
+import { Categories } from "./components/categories";
 
 export default function Home() {
   return (
@@ -13,6 +12,10 @@ export default function Home() {
         sizes="100vw"
         alt="banner contendo o texto até 55% de desconto só esse mês"
       />
+
+      <div className="mt-8">
+        <Categories />
+      </div>
     </div>
   );
 }
