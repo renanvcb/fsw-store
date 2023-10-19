@@ -42,7 +42,12 @@ async function ProductDetailsPage({
     <div className="flex flex-col gap-8 pb-8">
       <ProductImages imageUrls={product.imageUrls} name={product.name} />
       <ProductInfo product={computeProductPrice(product)} />
-      <ProductHorizontalList products={product.category.products} />
+      <div>
+        <ProductHorizontalList
+          title="PRODUTOS RECOMENDADOS"
+          products={product.category.products}
+        />
+      </div>
     </div>
   );
 }
