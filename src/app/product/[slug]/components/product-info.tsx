@@ -1,14 +1,9 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
+import DiscountBadge from "@/components/discount-badge";
 import { Button } from "@/components/ui/button";
 import { ProductWithTotalPrice } from "@/helpers/products";
-import {
-  ArrowDownIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  TruckIcon,
-} from "lucide-react";
+import { ChevronLeftIcon, ChevronRightIcon, TruckIcon } from "lucide-react";
 import { useState } from "react";
 
 interface ProductInfoProps {
@@ -40,9 +35,7 @@ function ProductInfo({
           R$ {totalPrice.toFixed(2).replace(".", ",")}
         </h1>
         {discountPercentage > 0 && (
-          <Badge className="px-2 py-[0.125rem]">
-            <ArrowDownIcon size={14} /> {discountPercentage}%
-          </Badge>
+          <DiscountBadge>{discountPercentage}</DiscountBadge>
         )}
       </div>
 
