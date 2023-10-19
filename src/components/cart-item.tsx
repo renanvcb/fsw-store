@@ -1,13 +1,20 @@
-import { CartProduct } from "@/providers/cart";
+import { CartContext, CartProduct } from "@/providers/cart";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { ChevronLeftIcon, ChevronRightIcon, TrashIcon } from "lucide-react";
+import { useContext } from "react";
 
 interface CartItemProps {
   product: CartProduct;
 }
 
 function CartItem({ product }: CartItemProps) {
+  const { decreaseProductQuantity } = useContext(CartContext);
+
+  function handleDecreaseProductQuantity() {
+    decreaseProductQuantity(product.id);
+  }
+
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-4">
@@ -38,7 +45,11 @@ function CartItem({ product }: CartItemProps) {
           </div>
 
           <div className="mt-1 flex items-center gap-3">
-            <Button size="icon" variant="outline">
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={handleDecreaseProductQuantity}
+            >
               <ChevronLeftIcon size={22} />
             </Button>
 
