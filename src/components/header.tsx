@@ -23,6 +23,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
+import Cart from "./cart";
 
 export function Header() {
   const { status, data } = useSession();
@@ -127,9 +128,17 @@ export function Header() {
         </h1>
       </Link>
 
-      <Button size="icon" variant="outline" className="p-">
-        <ShoppingCartIcon />
-      </Button>
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button size="icon" variant="outline" className="p-">
+            <ShoppingCartIcon />
+          </Button>
+        </SheetTrigger>
+
+        <SheetContent>
+          <Cart />
+        </SheetContent>
+      </Sheet>
     </Card>
   );
 }
