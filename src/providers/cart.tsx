@@ -14,7 +14,7 @@ interface ICartContext {
   cartTotalDiscount: number;
 }
 
-const CartContext = createContext<ICartContext>({
+export const CartContext = createContext<ICartContext>({
   products: [],
   cartTotalPrice: 0,
   cartBasePrice: 0,
