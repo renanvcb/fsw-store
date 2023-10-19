@@ -40,7 +40,7 @@ export function ProductItem({ product }: ProductItemProps) {
                 <p className="overflow-hidden text-ellipsis whitespace-nowrap font-bold">
                   R$ {product.totalPrice.toFixed(2).replace(".", ",")}
                 </p>
-                <p className="overflow-hidden text-ellipsis whitespace-nowrap text-xs line-through opacity-75">
+                <p className="overflow-hidden text-ellipsis whitespace-nowrap text-xs line-through opacity-50">
                   R$ {Number(product.basePrice).toFixed(2).replace(".", ",")}
                 </p>
               </>
