@@ -1,4 +1,4 @@
-import { ProductWithTotalPrice } from "@/app/helpers/products";
+import { ProductWithTotalPrice } from "@/helpers/products";
 import Image from "next/image";
 import { Badge } from "./ui/badge";
 import { ArrowDownIcon } from "lucide-react";
@@ -9,8 +9,8 @@ interface ProductItemProps {
 
 export function ProductItem({ product }: ProductItemProps) {
   return (
-    <div className="flex max-w-[10.625rem] flex-col gap-4">
-      <div className="relative flex h-[10.625rem] w-[10.625rem] items-center justify-center rounded-lg bg-accent">
+    <div className="flex flex-col gap-4">
+      <div className="relative flex h-[10.625rem] w-full items-center justify-center rounded-lg bg-accent">
         <Image
           src={product.imageUrls[0]}
           alt={product.name}
