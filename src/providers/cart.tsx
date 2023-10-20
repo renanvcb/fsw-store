@@ -50,8 +50,6 @@ function CartProvider({ children }: { children: ReactNode }) {
     }, 0);
   }, [products]);
 
-  // const totalDiscount = subTotal - total;
-
   function addProductToCart(product: CartProduct) {
     const productIsAlreadyOnCart = products.some(
       (cartProduct) => cartProduct.id === product.id,
