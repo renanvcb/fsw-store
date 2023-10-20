@@ -1,7 +1,7 @@
 "use client";
 
 import { ProductWithTotalPrice } from "@/helpers/products";
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useMemo, useState } from "react";
 
 export interface CartProduct extends ProductWithTotalPrice {
   quantity: number;
@@ -12,6 +12,9 @@ interface ICartContext {
   cartTotalPrice: number;
   cartBasePrice: number;
   cartTotalDiscount: number;
+  // subTotal: number;
+  // total: number;
+  // totalDiscount: number;
   addProductToCart: (product: CartProduct) => void;
   decreaseProductQuantity: (productId: string) => void;
   increaseProductQuantity: (productId: string) => void;
@@ -23,6 +26,9 @@ export const CartContext = createContext<ICartContext>({
   cartTotalPrice: 0,
   cartBasePrice: 0,
   cartTotalDiscount: 0,
+  // subTotal: 0,
+  // total: 0,
+  // totalDiscount: 0,
   addProductToCart: () => {},
   decreaseProductQuantity: () => {},
   increaseProductQuantity: () => {},
@@ -31,6 +37,20 @@ export const CartContext = createContext<ICartContext>({
 
 function CartProvider({ children }: { children: ReactNode }) {
   const [products, setProducts] = useState<CartProduct[]>([]);
+
+  const subTotal = useMemo(() => {
+    return products.reduce((acc, product) => {
+      return acc + Number(product.basePrice);
+    }, 0);
+  }, [products]);
+
+  const total = useMemo(() => {
+    return products.reduce((acc, product) => {
+      return acc + Number(product.totalPrice);
+    }, 0);
+  }, [products]);
+
+  // const totalDiscount = subTotal - total;
 
   function addProductToCart(product: CartProduct) {
     const productIsAlreadyOnCart = products.some(
@@ -103,9 +123,12 @@ function CartProvider({ children }: { children: ReactNode }) {
         decreaseProductQuantity,
         increaseProductQuantity,
         removeProductFromCart,
-        cartTotalPrice: 0,
-        cartBasePrice: 0,
-        cartTotalDiscount: 0,
+        cartTotalPrice: total,
+        cartBasePrice: subTotal,
+        cartTotalDiscount: subTotal - total,
+        // subTotal: 0,
+        // total: 0,
+        // totalDiscount: 0,
       }}
     >
       {children}
