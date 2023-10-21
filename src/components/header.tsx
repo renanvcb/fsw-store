@@ -135,7 +135,7 @@ export function Header() {
           </Button>
         </SheetTrigger>
 
-        <SheetContent>
+        <SheetContent className="w-[23rem]">
           <Cart />
         </SheetContent>
       </Sheet>
