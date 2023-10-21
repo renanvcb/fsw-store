@@ -32,8 +32,6 @@ async function ProductDetailsPage({
     },
   });
 
-  console.log(product);
-
   if (!product) {
     return null;
   }
